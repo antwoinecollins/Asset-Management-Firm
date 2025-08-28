@@ -1,62 +1,61 @@
 # 🛡️ Penetration Test Case Study (Portfolio Version)
 
 ## Overview
-In August 2025, I conducted an **internal penetration test** for a mid-sized asset management company. The goal was to identify vulnerabilities, assess the internal security posture, and provide actionable remediation recommendations.  
+In August 2025, I conducted an **internal penetration test** for a mid-sized financial services firm.  
+The engagement simulated realistic internal threat scenarios to evaluate vulnerabilities, internal security posture, and response readiness.  
 
-**Scope:** Internal subnet (~44 active hosts)  
-**Methodology:** Host discovery, service enumeration, vulnerability identification, and reporting  
-**Access:** No credentials provided, black-box internal assessment  
+**Scope:** Internal network (~multiple hosts, representative sample)  
+**Access:** Black-box (no credentials provided)  
+**Methodology:** Host discovery, service enumeration, vulnerability identification, reporting, and remediation recommendations  
 
 ---
 
-## Key Findings
+## Key Findings (High-Level)
 
-### 🔴 High Severity
-- **Firewall Admin Interfaces**: Internal management ports (SSH + web) were open, increasing risk of unauthorized access.
-- **PBX/VoIP Server**: Legacy software (Apache, PHP, MariaDB, OpenSSH) with multiple services exposed and expired SSL certificates. High-value system for attackers.
+### 🔴 Critical / High Risk
+- Internal management interfaces exposed without segmentation
+- Legacy services with missing patches
 
-### 🟠 Medium Severity
-- **Servers**: One Windows server had SMB signing disabled and legacy NFS services exposed.
-- **Printers**: Multiple redundant admin interfaces (HTTP/HTTPS/9100) with expired SSL certificates.
+### 🟠 Medium Risk
+- Misconfigured endpoints and redundant administrative services
 
 ### 🟢 Strengths
-- **Intrusion Detection System (IDS)**: Successfully flagged initial scans.
-- **Firewall Filtering**: Effectively blocked most external services.
-- **Domain Controller**: Properly enforced SMB signing.
+- Intrusion detection successfully logged test activity
+- Firewalls effectively restricted most external traffic
+- Core servers implemented baseline security controls
 
 ---
 
-## Recommendations
+## Recommendations (Summary)
 
 **Short-Term (30–60 days):**
-- Restrict firewall and PBX admin access to management VLANs.
-- Disable unnecessary printer and server services.
-- Replace expired certificates.
+- Limit administrative access to dedicated segments
+- Apply missing patches and remove unnecessary services
+- Standardize configuration settings across endpoints
 
 **Long-Term (3–6 months):**
-- Migrate from end-of-life software (Apache, PHP, MariaDB).
-- Standardize security hardening (SMB signing, RDP restrictions).
-- Establish continuous vulnerability management and regular patch cycles.
+- Migrate from unsupported software and legacy services
+- Implement continuous vulnerability scanning and patch management
+- Harden internal security policies and enforcement
 
 ---
 
 ## Tools & Techniques
-- **Nmap / Zenmap** – Host discovery & service enumeration
-- **Burp Suite Community** – Web application inspection
-- **PowerShell** – URL and port testing
-- **Manual Validation** – Browser-based checks of web interfaces
+- **Network & Host Discovery:** Nmap / Zenmap  
+- **Web Application & Service Testing:** Burp Suite Community, Manual Validation  
+- **Scripting / Automation:** PowerShell, Python for automated checks  
+- **Lab / Simulation:** Detection Lab VMs to simulate attack paths safely  
 
 ---
 
 ## Outcome
-This engagement highlighted both **key risks and existing strengths**. The client’s quick detection of scanning activity demonstrated mature monitoring controls, while remediation steps were clearly defined to reduce exposure.  
-
-For my portfolio, this case study reflects hands-on experience with:
+This engagement highlights hands-on experience in:
+- Internal network threat modeling and attack simulation
 - Host and service enumeration
-- Internal threat modeling
 - Communicating findings to both technical and executive audiences
-- Delivering both a **full technical report** and an **executive-friendly slide deck**
+- Delivering actionable remediation steps with clear risk prioritization
 
 ---
 
-📌 *Note: All sensitive details (company name, IP addresses) have been removed or generalized for confidentiality.*
+📌 **Note:** All sensitive details, including client names, IP addresses, hostnames, and specific internal configurations, have been removed or generalized for confidentiality.
+
