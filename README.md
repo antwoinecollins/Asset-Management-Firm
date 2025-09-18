@@ -77,7 +77,8 @@ _A sample of the professional deliverable created for this engagement (all sensi
 
 ![Report Screenshot](https://github.com/antwoinecollins/Asset-Management-Firm/blob/main/ReportSample_Screenshot_Sanitized.png)
 
-
+## MITRE Mapping
+- T1190: Exploit Public-Facing Application
 ---
 
 ## Notes on Confidentiality
